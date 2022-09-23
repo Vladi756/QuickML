@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block title %} Deep Learning Options {% endblock %}
+
+{% block rightcontent %}
+
+<div id="grey" class="col-md-8">
+    <table class="table" style="background-color: #007bff80;">
+        <tr>
+            <th></th>
+            <th>Choices</th>
+        </tr>
+        <tr>
+            <th>Layers</th>
+            <td>
+                <div class="form-outline">
+                    <input type="number" id="typeNumber" class="form-control" />
+                    <label class="form-label" for="typeNumber">No. of Layers</label>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <button id="iq" class="btn-success" onclick="furtherInfo()">Submit</button>
+</div>
+
+
+
+<div class="col-md-4"></div>
+<div class="col-md-8">
+    <div style="margin-top: 20px; background-color:#007bff80" id="table-area"></div>
+    <button id="eq" class="btn-success" onclick="invokeDL()"
+            style="display:none">Submit</button>
+
+</div>
+
+
+
+{% endblock %}
+
+
+<!-- 
+    dnn_arch: 
+        layers : 
+
+
+
+ -->
+
+<!-- 
+  <tr>
+            <th>Optimization Function</th>
+            <td>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected class="selected">Select</option>
+                    <option value="GD">Gradient Descent</option>
+                    <option value="LR">Learning Rate</option>
+                    <option value="SGD">Stochastic Gradient Descent</option>
+                    <option value="MBGD">Mini-Batch Gradient Descent</option>
+                    <option value="SGD">SGD with Momentum</option>
+                    <option value="RMS">Root Mean Square Propagation</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Loss Function</th>
+            <td>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected class="selected">Select</option>
+                    <option value="MSE">Mean Squared Error</option>
+                    <option value="CE">Cross-Entropy</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Batch Size</th>
+            <td>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected class="selected">Select</option>
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>Epoch</th>
+            <td>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected class="selected">Select</option>
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                </select>
+            </td>
+        </tr>
+
+
+  -->

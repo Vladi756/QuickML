@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %} Input Data {% endblock %}
+
+
+{% block rightcontent %}
+
+<div class="rightcontainer col-md-8 float-right">
+    <div class="rightpane" style="display:none" id="appear1">
+        <h3> Input Data </h3>
+        <form method="POST" action="" enctype="multipart/form-data">
+            <p><input type="file" name="file"></p>
+            <p><input type="submit" value="Submit"></p>
+        </form>
+    </div>
+
+    <div id='fade' class='rightpane' , style="height:45.65%" , id="preProcessedData">
+        <h3>Specify Data Attributes</h3>
+        <p>
+            Below are the attributes of your data. Please select which attributes
+            are independent, dependent and categorical. Independent data is not changed by other
+            data. The value of the dependent data is determined by that of the independent. Categorical
+            data are not numerical, they represent categories.
+        </p>
+
+        <table id="data" class="table">
+            <tr>
+                <th scope='col'></th>
+                <th scope='col'>Independent</th>
+                <th scope='col'>Dependent</th>
+                <th scope='col'>Categorical</th>
+                <th scope='col'>Ignore</th>
+            </tr>
+            <div>
+                {% for i in attributes: %}
+                <tr>
+                    <th scope="row" class="rt" value='{{i}}'>{{i}}</th>
+                    <td><input class='rd' type="radio" name='test_{{attributes.index(i)}}' value="Ind"></td>
+                    <td><input class='rd dep' type="radio" name='test_{{attributes.index(i)}}' value="Dep"></td>
+                    <td><input class='rd' type="checkbox" value="Cat"></td>
+                    <td><input class='rd' type="checkbox" value="Ignore"></td>
+                </tr>
+                {% endfor %}
+            </div>
+        </table>
+
+        <button class="btn btn-dark" 
+                onclick="makeVarMap()" 
+                data-toggle="collapse" 
+                href="#data" 
+                aria-expanded="false">Submit</button>
+    </div>
+</div>
+
+<div class="container-fluid float right">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-8">
+            <form method="POST" action="/Results">
+                <div id='main'>
+                </div>
+                <p><input class="btn" id="Xar" type="submit" value="Submit" style="display:none"></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
